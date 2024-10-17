@@ -7,4 +7,4 @@ Connect-MgGraph -Scopes "Application.Read.All"
 $enterpriseApps = Get-MgServicePrincipal -All
 
 # Display the enterprise applications
-$enterpriseApps | Select-Object DisplayName, AppId, Id
+$enterpriseApps | Select-Object DisplayName, Description, Homepage | Export-csv -Path "C:\temp\enterpriseapps.csv" -NoTypeInformation
