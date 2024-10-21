@@ -7,7 +7,7 @@ if (-not (Get-Module -ListAvailable -Name Microsoft.Graph)) {
 Connect-MgGraph -Scopes "Application.Read.All"
 
 # Get all enterprise applications
-$enterpriseApps = Get-MgServicePrincipal -Filter "tags/any(t:t eq 'WindowsAzureActiveDirectoryIntegratedApp')"
+$enterpriseApps = Get-MgServicePrincipal -Filter "tags/Any(x: x eq 'WindowsAzureActiveDirectoryIntegratedApp')"
 
 # Display the enterprise applications
 $enterpriseApps | Select-Object DisplayName, Description, Homepage | Export-csv -Path "C:\temp\enterpriseapps.csv" -NoTypeInformation
